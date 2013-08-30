@@ -1,0 +1,14 @@
+# GENERAL
+alias ls="ls -F"
+alias xe="emacs -nw -l ~/.emacs"
+
+# GIT
+alias gs="git status"
+alias gc="git commit -m"
+
+# DOCKER
+alias docker='sudo docker'
+
+# GPG
+alias encrypt="gpg -c"
+alias decrypt="gpg -d"
