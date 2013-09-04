@@ -1,5 +1,4 @@
 
-
 ; Swap ^x and ^q
 ; 021 is C-Q
 ; 030 is C-X
@@ -648,9 +647,9 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (fset 'c-comment
    [1 15 tab 47 42 return 42 tab return tab 42 47 16 5 32 60 60 32 67 79 77 77 69 78 84 83 32 72 69 82 69 32 62 62 8388706 8388706 2 2 2])
 ;(fset 'pft-region-old
-;   "/A? pft1jA")
+;   "/A?pft1jA")
 ;(fset 'pft-region
-;   "/A? cat /Users/john/Music/PFT/pft.preamble.ps /Users/john/Music/PFT/transcribe.ps - /Users/john/Music/PFT/pft.postamble.ps | pft1jA")
+;   "/A?cat /Users/john/Music/PFT/pft.preamble.ps /Users/john/Music/PFT/transcribe.ps - /Users/john/Music/PFT/pft.postamble.ps | pft1jA")
 
 (fset 'swap-windows
    [24 111 24 98 return 24 111 24 98 return 24 111 24 98 return])
@@ -1312,7 +1311,7 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (setq load-path (cons (expand-file-name "~/local/emacs/public/vm") load-path))
 (autoload 'vm "vm" "VM Mail." t)
 
-;(menu-bar-mode 0)
+(menu-bar-mode 0)
 ;(transient-mark-mode 0)
 
 (setq load-path (cons (expand-file-name "/usr/share/xemacs/xemacs-packages/lisp/cc-mode") load-path))
