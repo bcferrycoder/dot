@@ -15,3 +15,6 @@ PROMPT_COMMAND=''
 if [ -f ~/.alias ]; then
 	. ~/.alias
 fi
+
+PS1="$ "
+echo -e "\033];`hostname`\\007"
