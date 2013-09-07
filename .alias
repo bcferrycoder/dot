@@ -17,3 +17,6 @@ alias dim='docker images | grep jdw'
 # GPG
 alias encrypt="gpg -c"
 alias decrypt="gpg -d"
+
+# UTIL
+alias mem='while true; do free -m -t | tail -1'
