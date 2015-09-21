@@ -21,3 +21,4 @@ alias decrypt="gpg -d"
 
 # UTIL
 alias mem='while true; do free -m -t | tail -1'
+alias ports='netstat -tulanp'
