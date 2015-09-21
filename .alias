@@ -1,6 +1,7 @@
 # GENERAL
 alias ls="ls -F"
 alias xe="emacs -nw -l ~/.emacs"
+alias bc="bc -l"
 
 # GIT
 alias gs="git status"
