@@ -3,6 +3,13 @@
 ; 021 is C-Q
 ; 030 is C-X
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (defun swap ()
   (interactive)
   (progn
@@ -676,8 +683,9 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (fset 'insert-ttd
    "\C-o<br><input type=\"CHECKBOX\">")
 
-(defalias 'goto-TTD
-  (read-kbd-macro "C-x C-f /glencan/home/jdw/doc/T TD.txt RET"))
+;(defalias 'goto-TTD
+;  (read-kbd-macro "C-x C-f ~/jdw/jobs/saks/org/index.org RET"))
+;  (read-kbd-macro "C-x C-f ~/jdw/tmp/chops/TODO-REBOOT.txt RET"))
 
 (defalias 'goto-delicious
   (read-kbd-macro "C-x C-f /glencan/home/jdw/doc/d elicious.txt RET"))
@@ -837,28 +845,34 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (defalias 'jdbc-feedback-to-html (read-kbd-macro
 "| C-a C-k /net/javabuzz/export/pu blic_html/srtech/Techno logy/JDBC/Feedback/bin/ mail2html RET n"))(setq load-home-init-file t) ; don't load init file from ~/.xemacs/init.el
 
+(fset 'edit-lghg-script
+   [?\C-x ?\C-f ?/ ?s ?s ?h ?: ?r ?o ?o ?t ?@ ?n ?i ?p ?: ?/ ?v ?a ?r ?/ ?w ?w ?w ?/ ?n ?a ?- ?i ?n ?- ?p ?l ?a ?c ?e ?- ?d ?o ?t ?- ?o ?r ?g ?/ ?p ?u ?b ?l ?i ?c ?. ?h ?t ?m ?l ?/ ?r ?e ?s ?o ?u ?r ?c ?e ?s ?/ ?s ?c ?r ?i ?p ?t ?. ?h ?t ?m ?l return])
+
+(fset 'edit-wetherill-index
+   [?\C-x ?\C-f ?/ ?s ?s ?h ?: ?r ?o ?o ?t ?@ ?w ?e ?t ?h ?e ?r ?i ?l ?l ?: ?/ ?v ?a ?r ?/ ?w ?w ?w ?/ ?w ?e ?t ?h ?e ?r ?i ?l ?l ?. ?n ?e ?t ?/ ?p ?u ?b ?l ?i ?c ?. ?h ?t ?m ?l ?/ ?i ?n ?d ?e ?x ?. ?h ?t ?m ?l return])
+
 
 
 ; java macros
 
 
-(fset 'java-new-applet
-   [?/ ?/ return ?/ ?/ return ?/ ?/ return ?i ?m ?p ?o ?r ?t ?  ?j ?a ?v ?a ?. ?a ?p ?p ?l ?e ?t ?. ?A ?p ?p ?l ?e ?t ?; return return ?p ?u ?b ?l ?i ?c ?  ?c ?l ?a ?s ?s ?  ?  ?  ?e ?x ?t ?e ?n ?d ?s ?  ?A ?p ?p ?l ?e ?t ?  ?{ return return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?i ?n ?i ?t ?  ?( ?) ?  ?{ return ?} return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?s ?t ?a ?r ?t ?  ?( ?) ?  ?{ return ?} return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?s ?t ?o ?p ?  ?( ?) ?  ?{ return ?} return return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?p ?a ?i ?n ?t ?  ?( ?) ?  ?{ return ?} return ?} ?\M-< ?\C-s ?  ?  ?  ?\C-b ?\C-b])
+;; (fset 'java-new-applet
+;;    [?/ ?/ return ?/ ?/ return ?/ ?/ return ?i ?m ?p ?o ?r ?t ?  ?j ?a ?v ?a ?. ?a ?p ?p ?l ?e ?t ?. ?A ?p ?p ?l ?e ?t ?; return return ?p ?u ?b ?l ?i ?c ?  ?c ?l ?a ?s ?s ?  ?  ?  ?e ?x ?t ?e ?n ?d ?s ?  ?A ?p ?p ?l ?e ?t ?  ?{ return return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?i ?n ?i ?t ?  ?( ?) ?  ?{ return ?} return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?s ?t ?a ?r ?t ?  ?( ?) ?  ?{ return ?} return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?s ?t ?o ?p ?  ?( ?) ?  ?{ return ?} return return ?p ?u ?b ?l ?i ?c ?  ?v ?o ?i ?d ?  ?p ?a ?i ?n ?t ?  ?( ?) ?  ?{ return ?} return ?} ?\M-< ?\C-s ?  ?  ?  ?\C-b ?\C-b])
 
-(fset 'java-println
-   [?\C-o tab ?S ?y ?s ?t ?e ?m ?. ?o ?u ?t ?. ?p ?r ?i ?n ?t ?l ?n ?( ?" ?" ?) ?; ?\C-b ?\C-b ?\C-b])
+;; (fset 'java-println
+;;    [?\C-o tab ?S ?y ?s ?t ?e ?m ?. ?o ?u ?t ?. ?p ?r ?i ?n ?t ?l ?n ?( ?" ?" ?) ?; ?\C-b ?\C-b ?\C-b])
 
-(defalias 'java-printerr
-  (read-kbd-macro "TAB System.err.println(\"\"); 3*<C-b>"))
+;; (defalias 'java-printerr
+;;   (read-kbd-macro "TAB System.err.println(\"\"); 3*<C-b>"))
 
-(defalias 'java-try-catch (read-kbd-macro
-"TAB try SPC { RET TAB } RET TAB catch SPC (Exception SPC e) SPC { RET TAB System.out.println(\"exc eption: SPC \" SPC + SPC e.getMessage()); RET } 4*<C-p> C-e RET TAB"))
+;; (defalias 'java-try-catch (read-kbd-macro
+;; "TAB try SPC { RET TAB } RET TAB catch SPC (Exception SPC e) SPC { RET TAB System.out.println(\"exc eption: SPC \" SPC + SPC e.getMessage()); RET } 4*<C-p> C-e RET TAB"))
 
-(defalias 'java-try (read-kbd-macro
-"C-a C-o TAB try SPC { C-x C-x C-a C-o } ESC x indent- region RET"))
+;; (defalias 'java-try (read-kbd-macro
+;; "C-a C-o TAB try SPC { C-x C-x C-a C-o } ESC x indent- region RET"))
 
-(defalias 'java-catch (read-kbd-macro
-"C-a TAB catch SPC (Exception SPC e) S-SPC { RET TAB System.out.println(\"exc eption: S-SPC \" S-SPC + S-SPC e.getMessage()); RET }"))
+;; (defalias 'java-catch (read-kbd-macro
+;; "C-a TAB catch SPC (Exception SPC e) S-SPC { RET TAB System.out.println(\"exc eption: S-SPC \" S-SPC + S-SPC e.getMessage()); RET }"))
 
 
 ; key defs for keyboard macros, C-cC-v prefix
@@ -894,7 +908,7 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (global-set-key "\C-c\C-xG" 'global-unset-key)
 (global-set-key "\C-c\C-xg" 'global-set-key)
 (global-set-key "\C-c\C-xv" 'vc-toggle-read-only)
-(global-set-key "\C-c\C-xC" 'check)
+(global-set-key "\C-c\C-xC" 'comment-region)
 (global-set-key "\C-c\C-x\C-c" 'insert-ttd)
 ; (global-set-key "\C-c\C-xm" 'compile) ;; make, actually
 (global-set-key "\C-c\C-xm" 'manual-entry) 
@@ -910,13 +924,13 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (global-set-key "\C-c\C-xn" 'remove-netscape-lock)
 (global-set-key "\C-c\C-xi" 'send-invisible)
 (global-set-key "\C-c\C-xI" 'indent-region)
-(global-set-key "\C-c\C-x\C-i" 'ispell-region)
+(global-set-key "\C-c\C-x\C-i" 'indent-region)
 ; (global-set-key "\C-c\C-xf" 'fmt-region)
 (global-set-key "\C-c\C-xf" 'fill-region)
 (global-set-key "\C-c\C-xF" 'fill-paragraph)
 (global-set-key "\C-c\C-xt" 'fttd)
 (global-set-key "\C-c\C-x\C-t" 'send-testmail)
-(global-set-key "\C-c\C-xT" 'shell-other-window)
+;(global-set-key "\C-c\C-xT" 'shell-other-window)
 (global-set-key "\C-c\C-xP" 'swap-windows)
 (global-set-key "\C-c\C-xp" 'append-jp-db)
 (global-set-key "\C-c\C-xo" 'gone)
@@ -1030,16 +1044,14 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (define-key ctl-x-map "" 'arc-log)
 
 
-(define-key ctl-x-map "t" 'shell)
-(define-key ctl-x-map "T" 'goto-TTD)
 (define-key ctl-x-map "D" 'goto-delicious)
 (define-key ctl-x-map "c" 'compare-windows)
-(define-key ctl-x-map "s" 'goto-skyler)
+;(define-key ctl-x-map "s" 'goto-skyler)
 (define-key ctl-x-map "y" 'goto-vm)
-(define-key ctl-x-map "m" 'goto-mysql)
+(define-key ctl-x-map "m" 'magit)
 (define-key ctl-x-map "M" 'goto-mongo)
-(define-key ctl-x-map "l" 'goto-tail)
-(define-key ctl-x-map "w" 'goto-webrick)
+(define-key ctl-x-map "l" 'edit-lghg-script)
+(define-key ctl-x-map "w" 'edit-wetherill-index)
 
 
 ; c-x r commands
@@ -1120,11 +1132,25 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (setq url-proxy-services '(("http"     . "webcache-cup.eng.sun.com:8080")
 			   ("no_proxy" . "^.*\\(eng.sun\\|seanet\\)\.com")))
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
  '(load-home-init-file t t)
-; '(user-mail-address "john@los-gatos.net")
+ '(package-selected-packages
+   (quote
+    (organic-green-theme magit solarized-theme queue cider)))
  '(query-user-mail-address nil))
 
-(custom-set-faces)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 
 
@@ -1252,6 +1278,7 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
    [?\C-x ?\C-f ?/ ?t ?m ?p ?/ ?n ?e ?w backspace ?t ?s ?c ?a ?p ?e ?. backspace ?- ?g ?o ?- backspace ?. ?h ?t ?m ?l return ?\M-> ?\C-y ?\M-< ?\C-_ ?\M-< ?\C-w ?\C-y ?\M-y ?\M-< ?\C-o ?< ?h ?t ?m ?l ?> return ?< ?b ?o ?d ?y ?> return ?< ?a ?  ?h ?r ?e ?f ?- backspace ?= ?" ?\C-d ?\C-e ?\M-> ?" ?> ?\C-y ?< ?/ ?a ?> return ?< ?/ ?b ?o ?d ?y ?> return ?< ?/ ?h ?t ?m ?l ?> ?\C-x ?\C-s])
 
 (global-set-key "\C-c\C-xn" 'netscape-go)
+(global-set-key "\C-c\C-x\C-c" 'comment-region)
 
 ; java mode hook 
 ;(require 'autoinsert) 
@@ -1312,7 +1339,7 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 (autoload 'vm "vm" "VM Mail." t)
 
 (menu-bar-mode 0)
-;(transient-mark-mode 0)
+(transient-mark-mode 0)
 
 (setq load-path (cons (expand-file-name "/usr/share/xemacs/xemacs-packages/lisp/cc-mode") load-path))
 
@@ -1333,4 +1360,62 @@ I miss 'z.' 'zRET' 'z-' 'H' 'M' 'L' too much"
 ;   '(progn
 ;      (color-theme-initialize)
 ;      (color-theme-hober)))
+
+(setq inhibit-startup-screen t)
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+(setq initial-buffer-choice "~/jdw/jobs/saks/org/index.org")
+(message "disable")
+
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.milkbox.net/packages/")
+			 ("elpa" . "https://git.savannah.gnu.org/cgit/emacs/elpa.git/tree/packages/")))
+
+(add-to-list 'exec-path "/Users/jdw/bin")
+
+(load-theme 'solarized-dark)
+(tool-bar-mode -1)
+(setq ring-bell-function 'ignore)
+
+(setq org-startup-folded nil)
+(add-to-list 'load-path "/Users/jdw/jdw/etc/site-lisp")
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(require 'ox-twbs)
+(load-file "/Users/jdw/jdw/etc/site-lisp/fogus-theme.el")
+
+
+; SAKS STUFF
+(defun goto-saks-index ()
+(interactive)
+(find-file "~/jdw/jobs/saks/org/index.org"))
+
+(defun goto-saks-todo ()
+(interactive)
+(find-file "~/jdw/jobs/saks/org/TODO.org"))
+
+(defun goto-saks-links ()
+(interactive)
+(find-file "~/jdw/jobs/saks/org/links.org"))
+
+(defun goto-saks-tech ()
+(interactive)
+(find-file "~/jdw/jobs/saks/org/tech.org"))
+
+(defun goto-saks-qa ()
+(interactive)
+(find-file "~/jdw/jobs/saks/org/QA.org"))
+
+(defun goto-saks-people-projects ()
+(interactive)
+(find-file "~/jdw/jobs/saks/org/people-projects.org"))
+
+(global-unset-key "\C-xs")
+(global-set-key "\C-xsi" 'goto-saks-index)
+(global-set-key "\C-xsl" 'goto-saks-links)
+(global-set-key "\C-xsq" 'goto-saks-qa)
+(global-set-key "\C-xst" 'goto-saks-tech)
+(global-set-key "\C-xsT" 'goto-saks-todo)
+(global-set-key "\C-xsp" 'goto-saks-people-projects)
 
